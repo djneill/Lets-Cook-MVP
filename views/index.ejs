@@ -1,11 +1,32 @@
 <%- include('partials/header') -%>
 
-<main class="container">
-  <div class="row justify-content-around mt-5">
+<!-- <main class="container"> -->
+<!-- <div class="row justify-content-around mt-5">
     <a href="/login" class="col-3 btn btn-primary"> Login</a>
     <a href="/signup" class="col-3 btn btn-primary"> Signup</a>
-  </div>
-</main>
-<h1 class="text-3xl flex justify-center font-bold underline">Hello world!</h1>
+  </div> -->
+<!-- </main> -->
+  <main
+    data-theme="cupcake"
+    class="container flex justify-center items-center min-h-full p-11 mx-auto"
+  >
+    <div data-theme="light" class="card w-96 bg-base-100 shadow-2xl">
+      <figure class="px-10 pt-10">
+        <img src="/imgs/cookingindex.jpg" alt="Shoes" class="rounded-xl" />
+      </figure>
+      <div class="card-body items-center text-center">
+        <h2 class="card-title">Lets Cook!</h2>
+        <p>Search, Share, and Save your favorite recipes.</p>
+        <div class="card-actions">
+          <button class="btn btn-info mx-auto">
+            <a href="/login">Login</a>
+          </button>
+          <button class="btn btn-info mx-auto">
+            <a href="/signup">Signup</a>
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
 
 <%- include('partials/footer') -%>
