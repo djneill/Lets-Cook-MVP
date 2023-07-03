@@ -2610,6 +2610,14 @@ html {
     width: 6rem;
   }
 
+  .sm\:w-1\/2 {
+    width: 50%;
+  }
+
+  .sm\:w-2\/3 {
+    width: 66.666667%;
+  }
+
   .sm\:max-w-full {
     max-width: 100%;
   }
@@ -2648,6 +2656,10 @@ html {
 
   .lg\:hidden {
     display: none;
+  }
+
+  .lg\:w-1\/2 {
+    width: 50%;
   }
 
   .lg\:flex-row {
