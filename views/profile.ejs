@@ -10,17 +10,17 @@
 <div class="container flex justify-center items-center min-h-full mx-auto p-5">
   <div class="flex flex-col min-w-full lg:flex-row">
     <div class="grid flex-grow card rounded-box place-items-center mx-auto">
-      <div class="card bg-zinc-200 text-neutral-content shadow-2xl">
+      <div class="card bg-zinc-200 text-neutral-content justify-center shadow-2xl">
         <div class="card-body items-center text-center">
           <h2 class="card-title text-black">Add A Recipe</h2>
           <form action="/post/createPost" enctype="multipart/form-data" method="POST">
             <div class="mb-3">
               <label for="title" class="form-label text-black">Title</label>
-              <input type="text" class="form-control input input-bordered input-primary w-full" id="title" name="title">
+              <input type="text" class="form-control input input-bordered input-primary w-full max-w-xs sm:max-w-full" id="title" name="title">
             </div>
             <div class="mb-3">
               <label for="caption" class="form-label text-black">Caption</label>
-              <textarea class="form-control input input-bordered input-primary w-full" id="caption" name="caption"></textarea>
+              <textarea class="form-control input input-bordered input-primary w-full max-w-xs sm:max-w-full" id="caption" name="caption"></textarea>
             </div>
             <div class="mb-3">
               <label for="imgUpload" class="form-label text-black">Image</label>
@@ -56,6 +56,7 @@
     </div>
   </div>
 </div>
+
 
 
 
