@@ -2307,6 +2307,10 @@ html {
   margin: 1rem;
 }
 
+.m-0 {
+  margin: 0px;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -2424,8 +2428,16 @@ html {
   gap: 0.5rem;
 }
 
+.overflow-auto {
+  overflow: auto;
+}
+
 .overflow-hidden {
   overflow: hidden;
+}
+
+.overflow-clip {
+  overflow: clip;
 }
 
 .rounded-lg {
@@ -2608,14 +2620,6 @@ html {
 
   .sm\:w-24 {
     width: 6rem;
-  }
-
-  .sm\:w-1\/2 {
-    width: 50%;
-  }
-
-  .sm\:w-2\/3 {
-    width: 66.666667%;
   }
 
   .sm\:max-w-full {
