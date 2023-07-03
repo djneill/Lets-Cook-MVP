@@ -13,7 +13,11 @@ const PostSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
-  caption: {
+  ingredients: {
+    type: String,
+    required: true,
+  },
+  directions: {
     type: String,
     required: true,
   },
