@@ -1,4 +1,63 @@
 <%- include('partials/header') -%>
+
+<main>
+  <div class="container mx-auto p-5">
+    <p class="m-2"><strong>User Name</strong>: <%= user.userName %></p>
+    <p class="m-2"><strong>Email</strong>: <%= user.email %></p>
+    <a href="/logout" class="btn btn-active btn-error m-2">Logout</a>
+</div>
+
+<div class="container flex justify-center items-center min-h-full mx-auto"></div>
+<div class="flex flex-col w-full lg:flex-row">
+  <div class="grid flex-grow card rounded-box place-items-center">
+    <div class="card w-96 bg-zinc-200 text-neutral-content shadow-2xl">
+      <div class="card-body items-center text-center">
+        <h2 class="card-title text-black">Add A Recipe</h2>
+        <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+          <div class="mb-3">
+              <label for="title" class="form-label text-black">Title</label>
+              <input type="text" class="form-control input input-bordered input-primary w-full max-w-xs" id="title" name="title">
+          </div>
+          <div class="mb-3">
+            <label for="caption" class="form-label text-black">Caption</label>
+            <textarea class="form-control input input-bordered input-primary w-full max-w-xs" id="caption" name="caption"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="imgUpload" class="form-label text-black">Image</label>
+            <input type="file" class="form-control text-black" id="imageUpload" name="file" />
+          </div>
+          <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div> 
+
+  <div class="divider lg:divider-horizontal"><span class="material-symbols-outlined md-60">
+    outdoor_grill
+    </span></i></div> 
+
+  <div class="grid flex-grow card rounded-box place-items-center">
+    <div class="card w-96 bg-neutral text-neutral-content">
+      <div class="card w-96 bg-zinc-200 text-neutral-content shadow-2xl">
+        <div class="card-body items-center text-center">
+          <h2 class="card-title">Your Recent Recipes</h2>
+          <ul class="row list-unstyled">
+            <% for(var i=0; i<posts.length; i++) {%>
+              <li class="col-6 justify-content-between mt-5">
+                <a href="/post/<%= posts[i]._id%>">
+                  <img class="img-fluid" src="<%= posts[i].image%>">
+                </a>
+              </li>
+            <% } %>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
 <div class="container">
   <div class="row mt-5">
       <div class="col-6">
