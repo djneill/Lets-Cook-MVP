@@ -2307,10 +2307,6 @@ html {
   margin: 1rem;
 }
 
-.m-0 {
-  margin: 0px;
-}
-
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -2332,6 +2328,10 @@ html {
   margin-top: 1.25rem;
 }
 
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
 .inline-block {
   display: inline-block;
 }
@@ -2350,6 +2350,30 @@ html {
 
 .h-5 {
   height: 1.25rem;
+}
+
+.h-96 {
+  height: 24rem;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.max-h-\[648px\] {
+  max-height: 648px;
+}
+
+.max-h-\[448px\] {
+  max-height: 448px;
+}
+
+.max-h-\[500px\] {
+  max-height: 500px;
+}
+
+.max-h-\[550px\] {
+  max-height: 550px;
 }
 
 .min-h-full {
@@ -2412,6 +2436,10 @@ html {
   place-items: center;
 }
 
+.items-start {
+  align-items: flex-start;
+}
+
 .items-center {
   align-items: center;
 }
@@ -2428,16 +2456,16 @@ html {
   gap: 0.5rem;
 }
 
-.overflow-auto {
-  overflow: auto;
-}
-
 .overflow-hidden {
   overflow: hidden;
 }
 
-.overflow-clip {
-  overflow: clip;
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
+.scroll-auto {
+  scroll-behavior: auto;
 }
 
 .rounded-lg {
