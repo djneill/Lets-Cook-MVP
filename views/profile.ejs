@@ -9,7 +9,7 @@
 
 <div class="container flex justify-center items-center min-h-full mx-auto p-5">
   <div class="flex flex-col min-w-full lg:flex-row">
-    <div class="grid flex-grow card rounded-box place-items-center w-full lg:w-1/2 mx-auto">
+    <div class="grid flex-grow card rounded-box items-start w-full lg:w-1/2 mx-auto">
       <div class="card bg-zinc-200 text-neutral-content shadow-2xl">
         <div class="card-body items-center text-center">
           <h2 class="card-title text-black">Add A Recipe</h2>
@@ -32,6 +32,9 @@
             </div>
             <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
           </form>
+          <div class="row justify-content-center mt-5">
+            <a class="btn btn-primary" href="/feed">Return to Feed</a>
+          </div>
         </div>
       </div>
     </div>
@@ -42,15 +45,18 @@
       </span>
     </div>
 
-    <div class="grid flex-grow card rounded-box place-items-center w-full lg:w-1/2 mx-auto">
+    <div class="grid flex-grow card rounded-box place-items-center w-full lg:w-1/2 mx-auto max-h-[550px] overflow-y-auto">
       <div class="card bg-zinc-200 text-neutral-content shadow-2xl">
         <div class="card-body items-center text-center">
-          <h2 class="card-title text-black">Your Recent Recipes</h2>
+          <h2 class="card-title text-black">Your Recipes</h2>
           <ul class="row list-unstyled">
-            <% for(var i=0; i<posts.length; i++) {%>
+            <% var sortedPosts = posts.sort((a, b) => a.title.localeCompare(b.title)); %>
+
+            <% for(var i=0; i<sortedPosts.length; i++) {%>
             <li class="col-6 justify-between mt-5">
-              <a href="/post/<%= posts[i]._id%>">
-                <img class="w-full" src="<%= posts[i].image%>">
+              <h1 class="text-black mb-2"><%= sortedPosts[i].title %></h1>
+              <a href="/post/<%= sortedPosts[i]._id%>">
+                <img class="w-full" src="<%= sortedPosts[i].image%>">
               </a>
             </li>
             <% } %>
