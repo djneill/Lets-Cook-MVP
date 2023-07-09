@@ -2,12 +2,12 @@
 
 <div class="container grid gap-4 lg:grid-cols-2 md:grid-cols-1 sm:grid-flow-row mx-auto p-5">
     <% for(var i=0; i<posts.length; i++) { %>
-    <div class="card lg:w-96 sm:w-full bg-base-100 shadow-2xl mx-auto m-4">
+    <div class="card bg-zinc-200 lg:w-96 sm:w-full shadow-2xl mx-auto m-4">
       <figure class="px-10 pt-10">
         <ul>
           <li class="col-6 justify-content-between mt-5">
             <a href="/post/<%= posts[i]._id %>">
-              <img class="rounded" src="<%= posts[i].image %>" />
+              <img class="rounded max-h-48 mx-auto" src="<%= posts[i].image %>" />
               <h2 class="card-title justify-center m-4"><%= posts[i].title %></h2>
             </a>
           </li>
