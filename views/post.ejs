@@ -13,15 +13,19 @@
             <div class="flex justify-between w-full">
               <form class="flex items-center" action="/post/likePost/<%= post.id %>?_method=PUT" method="POST">
                 <button class="btn btn-secondary fa fa-heart" type="submit"></button>
-                <h3 class="ml-2 text-black">Likes: <%= post.likes %></h3>
+                <h3 class="ml-2 text-black">Likes: <%= post.likes %>
+                </h3>
               </form>
-              <% if (post.user == user.id) { %>
+              <form class="col-1" action="/recipe/favoriteRecipe/<%= post.id %>" method="POST">
+                <button class="btn btn-primary fa fa-star" type="submit"></button>
+              </form>
+              <% if (post.user==user.id) { %>
                 <form action="/post/deletePost/<%= post.id %>?_method=DELETE" method="POST" class="flex items-center">
                   <button class="btn btn-error fa fa-trash" type="submit"></button>
                 </form>
-              <% } %>
+                <% } %>
             </div>
-            
+
             <div class="mt-5">
               <h2 class="text-black">Add a comment</h2>
               <form action="/comment/createComment/<%=post._id%>" method="POST">
@@ -35,11 +39,15 @@
             <ul class="flex flex-col w-full">
               <% for(var i=0; i<comment.length; i++) { %>
                 <li class="flex justify-start w-full text-black mt-5">
-                  <span class="font-bold mr-2"><%= comment[i].user %></span>
-                  <span><%= comment[i].comment %></span>
+                  <span class="font-bold mr-2">
+                    <%= comment[i].user %>
+                  </span>
+                  <span>
+                    <%= comment[i].comment %>
+                  </span>
                 </li>
-              <% } %>
-            </ul>            
+                <% } %>
+            </ul>
             <div class="col-6 mt-5">
               <a class="btn btn-primary" href="/profile">Return to Profile</a>
               <a class="btn btn-info" href="/feed">Return to Feed</a>
