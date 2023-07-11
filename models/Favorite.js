@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
 const FavoriteSchema = new mongoose.Schema({
-    recipe: {
+    post: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Recipe",
+        ref: "Post",
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,

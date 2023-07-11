@@ -16,7 +16,7 @@
                 <h3 class="ml-2 text-black">Likes: <%= post.likes %>
                 </h3>
               </form>
-              <form class="col-1" action="/recipe/favoriteRecipe/<%= post.id %>" method="POST">
+              <form class="col-1" action="/post/favoriteRecipe/<%= post.id %>" method="POST">
                 <button class="btn btn-primary fa fa-star" type="submit"></button>
               </form>
               <% if (post.user==user.id) { %>
