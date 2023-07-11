@@ -109,4 +109,24 @@ module.exports = {
       res.redirect("/profile");
     }
   },
+  deleteFavorite: async (req, res) => {
+    try {
+      // Find the favorite entry by id
+      const favorite = await Favorite.findById(req.params.id);
+  
+      if (!favorite) {
+        console.log("Favorite not found");
+        res.redirect("/favorites");
+        return;
+      }
+  
+      // Delete the favorite entry
+      await favorite.remove();
+      console.log("Deleted Favorite");
+      res.redirect("/favorites");
+    } catch (err) {
+      console.log(err);
+      res.redirect("/favorites");
+    }
+  },  
 };

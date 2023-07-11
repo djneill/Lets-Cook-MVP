@@ -13,12 +13,17 @@
                 <figure class="px-4 py-4 mx-auto">
                     <ul>
                         <li class="justify-content-between mt-5">
-                            <a href="/post/<%= post[i].post._id%>">
-                                <h2 class="card-title justify-center text-center m-4">
-                                    <%= post[i].post.title%>
-                                </h2>
-                                <img class="rounded max-h-48 mx-auto" src="<%= post[i].post.image%>">
+                            <div class="flex-row">
+                                <a href="/post/<%= post[i].post._id%>">
+                                    <h2 class="card-title justify-center text-center m-4">
+                                        <%= post[i].post.title%>
+                                    </h2>
+                            </div>
+                            <img class="rounded max-h-48 mx-auto" src="<%= post[i].post.image%>">
                             </a>
+                        </li>
+                        <li>
+                            </form>
                         </li>
                     </ul>
                 </figure>

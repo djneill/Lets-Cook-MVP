@@ -2482,8 +2482,8 @@ html {
   flex-grow: 1;
 }
 
-.list-inside {
-  list-style-position: inside;
+.flex-row {
+  flex-direction: row;
 }
 
 .flex-col {
@@ -2502,12 +2502,20 @@ html {
   align-items: flex-start;
 }
 
+.items-end {
+  align-items: flex-end;
+}
+
 .items-center {
   align-items: center;
 }
 
 .justify-start {
   justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
 }
 
 .justify-center {
@@ -2607,10 +2615,6 @@ html {
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-
-.pb-5 {
-  padding-bottom: 1.25rem;
 }
 
 .pt-10 {
