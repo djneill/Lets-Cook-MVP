@@ -61,6 +61,7 @@ app.use(flash());
 app.use("/", mainRoutes);
 app.use("/post", postRoutes);
 app.use("/comment", commentRoutes);
+app.use("/favorite", postRoutes);
 
 //Server Running
 app.listen(process.env.PORT, () => {
