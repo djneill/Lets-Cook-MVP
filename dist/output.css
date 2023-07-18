@@ -1395,20 +1395,6 @@ html {
   align-items: center;
 }
 
-.navbar-start {
-  width: 50%;
-  justify-content: flex-start;
-}
-
-.navbar-center {
-  flex-shrink: 0;
-}
-
-.navbar-end {
-  width: 50%;
-  justify-content: flex-end;
-}
-
 .textarea {
   flex-shrink: 1;
   min-height: 3rem;
@@ -2180,15 +2166,6 @@ html {
   padding: 0px;
 }
 
-.menu-horizontal {
-  display: inline-flex;
-  flex-direction: row;
-}
-
-.menu-horizontal > li:not(.menu-title) > details > ul {
-  position: absolute;
-}
-
 .avatar.online:before {
   content: "";
   position: absolute;
@@ -2305,27 +2282,6 @@ html {
   margin-bottom: 0.75rem;
 }
 
-.menu-horizontal > li:not(.menu-title) > details > ul {
-  margin-top: 1rem;
-  margin-left: 0px;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  padding-right: 0.5rem;
-}
-
-.menu-horizontal > li > details > ul:before {
-  content: none;
-}
-
-:where(.menu-horizontal > li:not(.menu-title) > details > ul) {
-  --tw-bg-opacity: 1;
-  background-color: hsl(var(--b1) / var(--tw-bg-opacity));
-  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-  border-radius: var(--rounded-box, 1rem);
-}
-
 .menu-sm :where(li:not(.menu-title) > *:not(ul):not(details):not(.menu-title)),
   .menu-sm :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
   padding-left: 0.75rem;
@@ -2351,10 +2307,6 @@ html {
 
 .bottom-0 {
   bottom: 0px;
-}
-
-.top-5 {
-  top: 1.25rem;
 }
 
 .z-\[1\] {
@@ -2412,10 +2364,6 @@ html {
 
 .grid {
   display: grid;
-}
-
-.hidden {
-  display: none;
 }
 
 .h-5 {
@@ -2502,20 +2450,12 @@ html {
   align-items: flex-start;
 }
 
-.items-end {
-  align-items: flex-end;
-}
-
 .items-center {
   align-items: center;
 }
 
 .justify-start {
   justify-content: flex-start;
-}
-
-.justify-end {
-  justify-content: flex-end;
 }
 
 .justify-center {
@@ -2595,11 +2535,6 @@ html {
 
 .p-6 {
   padding: 1.5rem;
-}
-
-.px-1 {
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
 }
 
 .px-10 {
@@ -2742,10 +2677,6 @@ html {
     margin-top: 0px;
   }
 
-  .sm\:w-24 {
-    width: 6rem;
-  }
-
   .sm\:w-full {
     width: 100%;
   }
@@ -2790,14 +2721,6 @@ html {
 }
 
 @media (min-width: 1024px) {
-  .lg\:flex {
-    display: flex;
-  }
-
-  .lg\:hidden {
-    display: none;
-  }
-
   .lg\:w-1\/2 {
     width: 50%;
   }
