@@ -3,8 +3,8 @@ const { MongoClient, Db } = require('mongodb');
 // const recipeApi = require('recipe-api-library');
 
 const mongoURL = process.env.DB_STRING
-const dbName = 'test'
-const collectionName = 'posts';
+const dbName = process.env.DB_NAME
+const collectionName = process.env.DB_COLLECTION
 const apiKey = process.env.SPOON_API_KEY;
 
 // Connect to MongoDB
@@ -13,7 +13,7 @@ client.connect();
 
 // Search function
 async function search(req, res) {
-    const search = req.body.search;
+    const search = req.body.search
 
     try {
         // Search in MongoDB
@@ -22,7 +22,7 @@ async function search(req, res) {
         const mongoResults = await collection.find({ $text: { $search: search } }).toArray();
 
         // Search in Spoonacular API
-        const spoonacularEndpoint = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${search}`;
+        const spoonacularEndpoint = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${search}`
         const spoonacularResponse = await fetch(spoonacularEndpoint);
         const spoonacularData = await spoonacularResponse.json();
         const apiResults = spoonacularData.results;
@@ -31,7 +31,8 @@ async function search(req, res) {
         const combinedResults = { mongoResults, apiResults };
 
         // Set the response header
-        res.setHeader('Content-Type', 'application/json');
+        // res.setHeader('Content-Type', 'application/json');
+        // res.render('search', { searchResults: combinedResults })
 
         // Send the JSON response
         res.json(combinedResults);

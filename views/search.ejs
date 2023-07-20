@@ -1,22 +1,27 @@
 <%- include('partials/header') -%>
 
-    <div class="container grid gap-4 lg:grid-cols-2 md:grid-cols-1 sm:grid-flow-row mx-auto p-5">
-        <% for(var i=0; i<search.length; i++) { %>
+<div id="search-results"></div>
+
+
+
+    <%- include('partials/footer') -%>
+
+
+    <!-- <div class="container grid gap-4 lg:grid-cols-2 md:grid-cols-1 sm:grid-flow-row mx-auto p-5">
+        <% for(var i=0; i<searchResults.length; i++) { %>
             <div class="card bg-zinc-200 lg:w-96 sm:w-full shadow-2xl mx-auto m-4">
                 <figure class="px-4 py-4 mx-auto">
                     <ul>
                         <li class="justify-content-between mt-5">
-                            <a class="items-center" href="/post/<%= search[i]._id %>">
+                            <a class="items-center" href="/post/<%= searchResults[i]._id %>">
                                 <h2 class="card-title justify-center text-center m-4">
-                                    <%= search[i].title %>
+                                    <%= searchResults[i].title %>
                                 </h2>
-                                <img class="rounded max-h-48 mx-auto" src="<%= search[i].image %>" />
+                                <img class="rounded max-h-48 mx-auto" src="<%= searchResults[i].image %>" />
                             </a>
                         </li>
                     </ul>
                 </figure>
             </div>
             <% } %>
-    </div>
-
-    <%- include('partials/footer') -%>
+    </div> -->
