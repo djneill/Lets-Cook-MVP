@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.querySelector('input[name="search"]');
+    const searchIcon = document.getElementById('search-icon');
     const searchResultsContainer = document.querySelector('#search-results');
 
-    searchInput.addEventListener('change', async () => {
+    const performSearch = async () => {
         const searchQuery = searchInput.value;
 
         try {
@@ -14,40 +15,78 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify({ search: searchQuery }),
             });
 
-            console.log(response);
-
             if (!response.ok) {
                 throw new Error(`Search request failed with status: ${response.status} - ${response.statusText}`);
             }
 
             const searchResults = await response.json();
+            console.log(searchResults);
 
             // Handle the search results
             displaySearchResults(searchResults);
         } catch (error) {
             console.error('Error during search request:', error);
         }
+    };
+
+    searchInput.addEventListener('change', () => {
+        performSearch();
+    });
+
+    searchIcon.addEventListener('click', () => {
+        performSearch();
     });
 
     function displaySearchResults(searchResults) {
+    
+        // Check if searchResults is null or undefined
+        if (!searchResults) {
+            console.error('No search results found.');
+            return;
+        }
+    
         // Access the MongoDB and API results and update the UI as desired
         const mongoResults = searchResults.mongoResults;
-        const apiResults = searchResults.apiResults;
-
+    
+        // Check if mongoResults is an array
+        if (!Array.isArray(mongoResults)) {
+            console.error('MongoDB results are not in an array format:', mongoResults);
+            return;
+        }
+    
         // Clear the previous results
         searchResultsContainer.innerHTML = '';
-
+    
+        // Check if there are no matching results
+        if (mongoResults.length === 0) {
+            const noResultsMessage = document.createElement('div');
+            noResultsMessage.classList.add('text-center', 'text-gray-500', 'my-4');
+            noResultsMessage.innerText = 'No matching results found.';
+            searchResultsContainer.appendChild(noResultsMessage);
+            return; // Exit the function early
+        }
+    
         // Display MongoDB Results
         for (const mongoResult of mongoResults) {
             const cardElement = createCardElement(mongoResult.title, mongoResult.image, mongoResult._id);
-            searchResultsContainer.appendChild(cardElement);
-        }
+            const gridItem = document.createElement('div');
+            // gridItem.classList.add('container') 
+            // gridItem.classList.add('grid') 
+            // gridItem.classList.add('gap-4') 
+            // gridItem.classList.add('lg:grid-cols-2') 
+            // gridItem.classList.add('md:grid-cols-1') 
+            // gridItem.classList.add('sm:grid-flow-row') 
+            // gridItem.classList.add('mx-auto') 
+            // gridItem.classList.add('p-5') 
+            gridItem.appendChild(cardElement);
+            searchResultsContainer.appendChild(gridItem);
+        }    
 
         // Display Spoonacular API Results
-        for (const apiResult of apiResults) {
-            const cardElement = createCardElement(apiResult.title, apiResult.image, apiResult.id);
-            searchResultsContainer.appendChild(cardElement);
-        }
+        // for (const apiResult of apiResults) {
+        //     const cardElement = createCardElement(apiResult.title, apiResult.image, apiResult.id, false);
+        //     searchResultsContainer.appendChild(cardElement);
+        // }
     }
 
     function createCardElement(title, imageUrl, id) {

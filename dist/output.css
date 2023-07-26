@@ -2300,6 +2300,14 @@ html {
   padding-bottom: 0.5rem;
 }
 
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
 .inset-x-0 {
   left: 0px;
   right: 0px;
@@ -2307,6 +2315,14 @@ html {
 
 .bottom-0 {
   bottom: 0px;
+}
+
+.right-3 {
+  right: 0.75rem;
+}
+
+.top-4 {
+  top: 1rem;
 }
 
 .z-\[1\] {
@@ -2324,6 +2340,11 @@ html {
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .mb-2 {
@@ -2386,6 +2407,10 @@ html {
   min-height: 100%;
 }
 
+.min-h-screen {
+  min-height: 100vh;
+}
+
 .w-24 {
   width: 6rem;
 }
@@ -2428,6 +2453,10 @@ html {
 
 .flex-grow {
   flex-grow: 1;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .flex-row {
@@ -2550,6 +2579,10 @@ html {
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.pr-10 {
+  padding-right: 2.5rem;
 }
 
 .pt-10 {

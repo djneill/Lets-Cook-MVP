@@ -22,20 +22,22 @@ async function search(req, res) {
         const mongoResults = await collection.find({ $text: { $search: search } }).toArray();
 
         // Search in Spoonacular API
-        const spoonacularEndpoint = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${search}`
-        const spoonacularResponse = await fetch(spoonacularEndpoint);
-        const spoonacularData = await spoonacularResponse.json();
-        const apiResults = spoonacularData.results;
+        // const spoonacularEndpoint = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${search}`
+        // const spoonacularResponse = await fetch(spoonacularEndpoint);
+        // const spoonacularData = await spoonacularResponse.json();
+        // const apiResults = spoonacularData.results;
 
         // Combine and format the results
-        const combinedResults = { mongoResults, apiResults };
+        // const combinedResults = { mongoResults, apiResults };
+        const combinedResults = mongoResults;
 
         // Set the response header
-        // res.setHeader('Content-Type', 'application/json');
+        res.setHeader('Content-Type', 'application/json');
         // res.render('search', { searchResults: combinedResults })
 
         // Send the JSON response
-        res.json(combinedResults);
+        // res.json(combinedResults);
+        res.json({ mongoResults })
     } catch (error) {
         console.error('Error during search:', error);
         res.status(500).json({ error: 'An error occurred during search' });
