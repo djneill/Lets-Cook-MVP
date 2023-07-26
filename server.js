@@ -11,6 +11,7 @@ const connectDB = require("./config/database");
 const path = require("path")
 const mainRoutes = require("./routes/main");
 const postRoutes = require("./routes/posts");
+const searchRoutes = require("./routes/search")
 const commentRoutes = require("./routes/comments");
 
 //Use .env file in config folder
@@ -24,6 +25,7 @@ connectDB();
 
 //Using EJS for views
 app.set("view engine", "ejs");
+app.set('views', path.join(__dirname, 'views'));
 
 //Static Folder
 app.use(express.static("public"));
@@ -62,6 +64,7 @@ app.use("/", mainRoutes);
 app.use("/post", postRoutes);
 app.use("/comment", commentRoutes);
 app.use("/favorite", postRoutes);
+app.use("/search", searchRoutes)
 
 //Server Running
 app.listen(process.env.PORT, () => {

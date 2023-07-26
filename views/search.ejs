@@ -1,0 +1,20 @@
+<%- include('partials/header') -%>
+
+    <div class="container mx-auto p-5 min-h-screen w-full">
+
+        <div class="form-control relative">
+            <input type="text" placeholder="Search" name="search" class="input input-bordered md:w-auto w-full pr-10" />
+            <i id="search-icon" class="fa-solid fa-magnifying-glass absolute top-4 right-3 mr-4 cursor-pointer text-gray-500"></i>
+        </div>
+        
+
+        <div class="container mx-auto p-5">
+            <div id="search-results"></div>
+        </div>
+        
+
+    </div>
+
+
+
+    <%- include('partials/footer') -%>

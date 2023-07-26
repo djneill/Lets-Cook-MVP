@@ -35,4 +35,7 @@ const PostSchema = new mongoose.Schema({
   },
 });
 
+// Add the text index on the 'title' field
+PostSchema.index({ title: 'text' });
+
 module.exports = mongoose.model("Post", PostSchema);
