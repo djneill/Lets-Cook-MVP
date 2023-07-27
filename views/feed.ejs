@@ -1,14 +1,15 @@
 <%- include('partials/header') -%>
 
 <div class="container grid gap-4 lg:grid-cols-2 md:grid-cols-1 sm:grid-flow-row mx-auto p-5">
-    <% for(var i=0; i<posts.length; i++) { %>
+  <% var sortedPosts=posts.sort((a, b)=> a.title.localeCompare(b.title)); %>
+    <% for(var i=0; i<sortedPosts.length; i++) { %>
     <div class="card bg-zinc-200 lg:w-96 sm:w-full shadow-2xl mx-auto m-4">
       <figure class="px-4 py-4 mx-auto">
         <ul>
           <li class="justify-content-between mt-5">
-            <a class="items-center" href="/post/<%= posts[i]._id %>">
-              <h2 class="card-title justify-center text-center m-4"><%= posts[i].title %></h2>
-              <img class="rounded max-h-48 mx-auto" src="<%= posts[i].image %>" />
+            <a class="items-center" href="/post/<%= sortedPosts[i]._id %>">
+              <h2 class="card-title justify-center text-center m-4"><%= sortedPosts[i].title %></h2>
+              <img class="rounded max-h-48 mx-auto" src="<%= sortedPosts[i].image %>" />
             </a>
           </li>
         </ul>
