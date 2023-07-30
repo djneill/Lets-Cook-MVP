@@ -1,9 +1,17 @@
 const mongoose = require("mongoose");
 
 const FavoriteSchema = new mongoose.Schema({
-    post: {
+    favPost: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Post",
+    },
+    title: {
+        type: String,
+        required: true,
+    },
+    image: {
+        type: String,
+        require: true,
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,
