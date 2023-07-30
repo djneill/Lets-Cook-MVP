@@ -15,18 +15,18 @@ module.exports = {
       console.log(err);
     }
   },
-  getFavorites: async (req, res) => { 
+  getFavorites: async (req, res) => {
     console.log(req.user)
     try {
       //Since we have a session each request (req) contains the logged-in users info: req.user
       //console.log(req.user) to see everything
       //Grabbing just the posts of the logged-in user
-      const post = await Favorite.find({ user: req.user.id }).populate('post');
+      const favPost = await Favorite.find({ user: req.user.id }).populate('post');
 
-      // console.log(post)
+      console.log('favPost:', favPost)
 
       //Sending post data from mongodb and user data to ejs template
-      res.render("favorites.ejs", { post: post, user: req.user });
+      res.render("favorites.ejs", { favPost: favPost, user: req.user });
     } catch (err) {
       console.log(err);
     }
@@ -42,7 +42,7 @@ module.exports = {
   getPost: async (req, res) => {
     try {
       const post = await Post.findById(req.params.id);
-      const comments = await Comment.find({post: req.params.id}).sort({ createdAt: "desc" }).lean();
+      const comments = await Comment.find({ post: req.params.id }).sort({ createdAt: "desc" }).lean();
       res.render("post.ejs", { post: post, user: req.user, comment: comments });
     } catch (err) {
       console.log(err);
@@ -70,17 +70,33 @@ module.exports = {
   },
   favoriteRecipe: async (req, res) => {
     try {
-      //media is stored on cloudainary - the above request responds with url to media and the media id that you will need when deleting content 
-      await Favorite.create({
-        user: req.user.id,
-        post: req.params.id,
+      // Find the post to be favorited
+      const post = await Post.findById(req.params.id);
+
+      if (!post) {
+        // Post not found, handle the error or send an appropriate response
+        return res.status(404).json({ message: "Post not found" });
+      }
+
+      // Create a favorite object using data from the post
+      const favorite = new Favorite({
+        favPost: post._id,
+        title: post.title, // Add the title from the post
+        image: post.image, // Add the image from the post
+        user: req.user._id,
       });
+
+      // Save the favorite
+      await favorite.save();
+
       console.log("Favorite has been added!");
-      res.redirect(`/post/${req.params.id}`);
+      res.redirect("/post/" + post._id);
     } catch (err) {
-      console.log(err);
+      console.error(err);
+      res.status(500).json({ message: "Failed to add favorite" });
     }
   },
+
   likePost: async (req, res) => {
     try {
       await Post.findOneAndUpdate(
@@ -113,13 +129,13 @@ module.exports = {
     try {
       // Find the favorite entry by id
       const favorite = await Favorite.findById(req.params.id);
-  
+
       if (!favorite) {
         console.log("Favorite not found");
         res.redirect("/favorites");
         return;
       }
-  
+
       // Delete the favorite entry
       await favorite.remove();
       console.log("Deleted Favorite");
@@ -128,5 +144,5 @@ module.exports = {
       console.log(err);
       res.redirect("/favorites");
     }
-  },  
+  },
 };
