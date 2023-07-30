@@ -2391,10 +2391,6 @@ html {
   height: 1.25rem;
 }
 
-.h-screen {
-  height: 100vh;
-}
-
 .max-h-48 {
   max-height: 12rem;
 }
