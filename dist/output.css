@@ -2308,10 +2308,6 @@ html {
   position: relative;
 }
 
-.sticky {
-  position: sticky;
-}
-
 .inset-x-0 {
   left: 0px;
   right: 0px;
@@ -2377,10 +2373,6 @@ html {
 
 .mt-5 {
   margin-top: 1.25rem;
-}
-
-.mt-auto {
-  margin-top: auto;
 }
 
 .inline-block {
@@ -2499,10 +2491,6 @@ html {
   justify-content: flex-start;
 }
 
-.justify-end {
-  justify-content: flex-end;
-}
-
 .justify-center {
   justify-content: center;
 }
@@ -2607,10 +2595,6 @@ html {
 
 .text-center {
   text-align: center;
-}
-
-.align-baseline {
-  vertical-align: baseline;
 }
 
 .text-sm {
@@ -2774,10 +2758,6 @@ html {
 }
 
 @media (min-width: 1024px) {
-  .lg\:col-span-1 {
-    grid-column: span 1 / span 1;
-  }
-
   .lg\:w-1\/2 {
     width: 50%;
   }
