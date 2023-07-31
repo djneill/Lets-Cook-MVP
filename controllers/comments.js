@@ -1,11 +1,16 @@
 const Comment = require("../models/Comment");
+const User = require("../models/User")
 
 
 module.exports = {
     createComment: async (req, res) => {
         try {
+            // Fetch the user from the User collection
+            const user = await User.findById(req.user._id)
+
+            // Create a new comment and associate it wit the user
             await Comment.create({
-                user: req.body.userName,
+                user: user, // Use the entire user object, not just req.user._id
                 comment: req.body.comment,
                 likes: 0,
                 post: req.params.id,
