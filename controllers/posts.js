@@ -23,7 +23,7 @@ module.exports = {
       //Grabbing just the posts of the logged-in user
       const favPost = await Favorite.find({ user: req.user.id }).populate('post');
 
-      console.log('favPost:', favPost)
+      // console.log('favPost:', favPost)
 
       //Sending post data from mongodb and user data to ejs template
       res.render("favorites.ejs", { favPost: favPost, user: req.user });
