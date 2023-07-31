@@ -3,33 +3,44 @@
     <body class="min-h-screen">
         <div class="container mx-auto p-5">
             <h1 class="font-bold card-title justify-center uppercase">Favorites</h1>
-            <% if(favPost.length <= 0) { %>
+            <% if(favPost.length <=0) { %>
                 <p class="text-center m-4">No favorite posts saved yet.</p>
                 <% } %>
         </div>
 
         <div class="container grid gap-4 lg:grid-cols-2 md:grid-cols-1 sm:grid-flow-row mx-auto p-5">
             <% if(favPost.length> 0) { %>
-                <% for(var i=0; i<favPost.length; i++) {%>
-                    <div class="card bg-zinc-200 lg:w-96 sm:w-full shadow-2xl mx-auto m-4">
-                        <figure class="px-4 py-4 mx-auto">
-                            <ul>
-                                <li class="justify-content-between mt-5">
-                                    <div class="flex-row">
-                                        <a href="/post/<%= favPost[i].favPost %>">
-                                            <h2 class="card-title justify-center text-center m-4">
-                                                <%= favPost[i].title %>
-                                            </h2>
-                                            <img class="rounded max-h-48 mx-auto" src="<%= favPost[i].image %>">
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </figure>
-                    </div>
-                    <% } %>
-                        <% } else { %>
-                            <% } %>
+                <% var sortedFavPosts=favPost.sort((a, b)=> a.title.localeCompare(b.title)); %>
+                    <% for(var i=0; i<sortedFavPosts.length; i++) {%>
+                        <div class="card bg-zinc-200 lg:w-96 sm:w-full shadow-2xl mx-auto m-4">
+                            <figure class="px-4 py-4 mx-auto">
+                                <ul>
+                                    <li class="justify-content-between mt-5">
+                                        <div class="flex-row">
+                                            <a href="/post/<%= sortedFavPosts[i].favPost %>">
+                                                <h2 class="card-title justify-center text-center m-4">
+                                                    <%= sortedFavPosts[i].title %>
+                                                </h2>
+                                                </form>
+                                                <% if (favPost[i].user==user.id) { %>
+                                                    <form
+                                                        action="/post/deleteFavorite/<%= favPost[i].id %>?_method=DELETE"
+                                                        method="POST" class="flex items-center absolute top-2 right-2">
+                                                        <button class="btn btn-error fa fa-trash"
+                                                            type="submit"></button>
+                                                        <% } %>
+                                                    </form>
+                                                    <img class="rounded max-h-48 mx-auto"
+                                                        src="<%= sortedFavPosts[i].image %>">
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </figure>
+                        </div>
+                        <% } %>
+                            <% } else { %>
+                                <% } %>
         </div>
     </body>
 
