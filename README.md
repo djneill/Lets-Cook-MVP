@@ -1,6 +1,34 @@
-# Readme documentation to come 🔜
+<table bordercolor="#66b2b2">
+<tr>
+<td width="50%" valign="top">
+<img src="public/imgs/one.png" width="100%" alt="" />
+</td>
+<td width="50%" valign="top">
+<img src="public/imgs/two.png" width="100%" alt="" />
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<img src="public/imgs/three.png" width="100%" alt="" />
+</td>
+<td width="50%" valign="top">
+<img src="public/imgs/four.png" width="100%" alt="" />
+</td>
+</tr>
+</table>
+<h1 align="center">Let's Cook</h1>
 
-Work in progress visible here 👉 https://letscook.cyclic.app/
+<p>Take a look at it here 👉 https://letscook.cyclic.app/</p>
+
+<h2 align="center">Tech Used</h2> 
+<p align="center"> EJS, CSS3, Tailwind CSS, Javascript, Font Awesome, Node.js, Express, Passport.js, MongoDB, Mongoose, MVC paradigm </p>
+
+<h2 align="center">Goals and Accomplishments</h2>
+Let's Cook is a full-stack web app. I wanted to create a place where users could post their favorite recipes, search for new recipes, and save their favorite recipes to a collection that they could easily find. Users can like, save, and comment on recipes, as well as delete recipes from their favorites that they may not want to keep saved.
+
+<h2 align="center">Optimizations</h2>
+
+Optimized this to fit all screen sizes as best as possible. The goal was for the user to have a fluid experience on all their devices. Designed with mobile-first in mind.
 
 # Install
 
@@ -24,4 +52,7 @@ Work in progress visible here 👉 https://letscook.cyclic.app/
 # Run
 
 `npm start`
+
+# Have fun testing and improving it! 😎
+
 # Lets-Cook-MVP
