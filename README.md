@@ -1,3 +1,5 @@
+<img align="center" src="public/imgs/onegif.gif" alt="gif of operating app" />
+
 <table bordercolor="#66b2b2">
 <tr>
 <td width="50%" valign="top">
