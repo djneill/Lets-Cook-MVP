@@ -1,7 +1,7 @@
 {
   "name": "lets-cook",
   "version": "1.0.0",
-  "description": "full stack web app for sharing recipes",
+  "description": "full-stack web app for sharing recipes",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
