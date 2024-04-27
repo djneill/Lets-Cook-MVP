@@ -4,7 +4,8 @@
 
 <h1 align="center">Let's Cook</h1>
 
-<p>Take a look at it here 👉 https://letscook.cyclic.app/</p>
+<p>Take a look at it here 👉 https://lets-cook-mvp.onrender.com/</p>
+<p>*Render takes a minute to spin up*</p>
 
 <h2 align="center">Tech Used</h2> 
 <p align="center"> EJS, CSS3, Tailwind CSS, Javascript, Font Awesome, Node.js, Express, Passport.js, MongoDB, Mongoose, MVC paradigm </p>
