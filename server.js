@@ -1,4 +1,5 @@
 const express = require("express");
+const serverless = require("serverless-http")
 const app = express();
 const mongoose = require("mongoose");
 const passport = require("passport");
@@ -15,7 +16,7 @@ const searchRoutes = require("./routes/search")
 const commentRoutes = require("./routes/comments");
 
 //Use .env file in config folder
-require("dotenv").config({path: "./config/.env" });
+require("dotenv").config({ path: "./config/.env" });
 
 // Passport config
 require("./config/passport")(passport);
@@ -65,6 +66,8 @@ app.use("/post", postRoutes);
 app.use("/comment", commentRoutes);
 app.use("/favorite", postRoutes);
 app.use("/search", searchRoutes)
+
+export const handler = serverless(app)
 
 //Server Running
 app.listen(process.env.PORT, () => {

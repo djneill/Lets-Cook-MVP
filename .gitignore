@@ -2,3 +2,5 @@ node_modules
 .env
 .vscode
 config/.env
+# Local Netlify folder
+.netlify
